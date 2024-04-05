@@ -17,7 +17,6 @@ const initialState = {
 
 // To Add A Task To the Function
 const addTaskFn = (state, action) => {
-    console.log(state.tasks)
     const newTask = {
         title: action.payload.title,
         description: action.payload.description,
@@ -31,7 +30,6 @@ const addTaskFn = (state, action) => {
         team: action.payload.team,
     };
     state.tasks = [...state.tasks, newTask];
-    console.log(state.tasks);
     localStorage.setItem('tasks', JSON.stringify(state.tasks));
 }
 
@@ -81,8 +79,8 @@ const getAllFilterTasksFn = (state, action) => {
         task =>
             // To Filter the Assignee with name
             (
-                task.assignee ?
-                    task.assignee.toLowerCase().includes(action.payload.assigneeName)
+                action.payload.assigneeName ?
+                    task.assignee.toLowerCase().includes(action.payload.assigneeName.toLowerCase())
                     : true
             )
             // To Filter the task priority
@@ -93,7 +91,8 @@ const getAllFilterTasksFn = (state, action) => {
             )
             // To Filter the Task with a Date Range
             && (
-                task.createdAt >= action.payload.startDate && task.createdAt <= action.payload.endDate
+                (action.payload.startDate && action.payload.endDate)
+                    ? task.createdAt >= action.payload.startDate && task.createdAt <= action.payload.endDate : true
             )
     );
     state.isFilterApplied = true;
@@ -111,6 +110,7 @@ const categoriesTasksFn = (state, _) => {
 // Reset The filter Tasks
 const resetTasksFn = (state, _) => {
     state.tasks = state.recoverTasks;
+    state.recoverTasks = [];
     state.isFilterApplied = false;
 }
 

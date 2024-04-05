@@ -14,7 +14,7 @@ const TaskAddEditModal = ({ isEditable }) => {
     const isEditableContent = useSelector(state => state.general.editAbleContent);
 
     const [showStatusDropDown, setShowStatusDropDown] = useState(false)
-    const [currentStatus, setCurrentStatus] = useState(isEditableContent.status || null);
+    const [currentStatus, setCurrentStatus] = useState(isEditableContent?.status || null);
     const [priorityContent, setPriorityContent] = useState(null);
 
 

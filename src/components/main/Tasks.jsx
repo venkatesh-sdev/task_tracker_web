@@ -75,8 +75,8 @@ const Tasks = () => {
                     {
                         assigneeName: filterAssigneeRef.current.value,
                         priority: filterPriorityContent,
-                        startDate: new Date(startDate),
-                        endDate: new Date(endDate)
+                        startDate: startDate ? new Date(startDate) : '',
+                        endDate: endDate ? new Date(endDate) : ''
                     }
                 )
             ) :
