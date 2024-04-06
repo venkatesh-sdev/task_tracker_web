@@ -12,7 +12,6 @@ const TaskCategoryContainer = ({ title, color, tasks }) => {
         </h1>
         {/* Category List */}
         <div className="px-2 pb-2">
-
             {
                 tasks.length === 0 ?
                     <div className="flex justify-center mt-44"> No Tasks Yet</div>

@@ -1,13 +1,16 @@
 /* eslint-disable react/prop-types */
-import { IoClose } from "react-icons/io5"
-import PriorityDropDown from "./PriorityDropDown"
+
 import { useEffect, useRef, useState } from "react";
+
 import { useDispatch, useSelector } from "react-redux";
-import { toggleCreateModal, toggleEditModal } from "../../context/reducers/generalReducer";
 import { addTask, editTask } from "../../context/reducers/tasksReducer";
+import { toggleCreateModal, toggleEditModal } from "../../context/reducers/generalReducer";
 
 import { priorities, status } from "../../constants/enums";
 
+import PriorityDropDown from "./PriorityDropDown"
+
+import { IoClose } from "react-icons/io5"
 
 const TaskAddEditModal = ({ isEditable }) => {
 

@@ -1,4 +1,4 @@
-/* eslint-disable no-unused-vars */
+
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
@@ -16,7 +16,7 @@ const generalSlice = createSlice({
             state.editAbleContent = action.payload
             state.isEditModalOpen = !state.isEditModalOpen;
         },
-        toggleCreateModal: (state, action) => {
+        toggleCreateModal: (state) => {
             state.isCreateModalOpen = !state.isCreateModalOpen;
         },
     }

@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { createSlice } from "@reduxjs/toolkit";
 import { v4 as uuid } from 'uuid'
 import { status } from "../../constants/enums";
@@ -99,7 +98,7 @@ const getAllFilterTasksFn = (state, action) => {
 }
 
 // To Seperate the Categoires
-const categoriesTasksFn = (state, _) => {
+const categoriesTasksFn = (state) => {
     state.completedTasks = state.tasks.filter(task => task.status === status.completed);
     state.inProgressTasks = state.tasks.filter(task => task.status === status.inProgress);
     state.pendingTasks = state.tasks.filter(task => task.status === status.pending);
@@ -108,7 +107,7 @@ const categoriesTasksFn = (state, _) => {
 }
 
 // Reset The filter Tasks
-const resetTasksFn = (state, _) => {
+const resetTasksFn = (state) => {
     state.tasks = state.recoverTasks;
     state.recoverTasks = [];
     state.isFilterApplied = false;
